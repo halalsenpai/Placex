@@ -7,7 +7,7 @@ div span {
   align-content: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  height: 50px;
+  height: fit-content;
 }
 
 .toggle-div {
@@ -15,4 +15,17 @@ div span {
   width: 50%;
   justify-content: space-between;
   align-items: center;
+
+  height: 44px;
+}
+input {
+  height: 97%;
+  border: 2px solid rgb(0, 120, 200);
+  border-radius: 6px;
+}
+@media screen and (max-width: 769px) {
+  .toggle-div {
+    flex-grow: 1;
+    width: 100%;
+  }
 }

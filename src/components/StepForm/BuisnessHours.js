@@ -5,11 +5,17 @@ import "./formstyles.css";
 import Hours from "./Hours";
 
 export default function BuisnessHours({ formData, setForm, navigation }) {
+  const { name, address } = formData;
+  // formData.times[0].monday.map((time) => console.log(time));
+  // let times = formData.times.map((days) => days);
+  // console.log(times);
+
+  // Styling
   const style = {
     display: "flex",
     justifyContent: "space-between",
   };
-
+  //Function for Toggling State on the toggle
   const [isToggle, setToggle] = useState(true);
   function toggled() {
     setToggle(!isToggle);
@@ -17,9 +23,9 @@ export default function BuisnessHours({ formData, setForm, navigation }) {
 
   return (
     <>
-      <Container style={{ marginTop: "5em" }}>
+      <Container>
         <h1 style={{ textAlign: "center" }}>Buisness Hours</h1>
-        <div style={{ width: "500px", margin: "0 auto" }}>
+        <Container style={{ width: "70%" }}>
           <div style={style}>
             <Header as="h3">Always Open</Header>
             <Checkbox
@@ -33,24 +39,17 @@ export default function BuisnessHours({ formData, setForm, navigation }) {
             <Header as="h3">Open Specific Hours</Header>
             <Checkbox toggle checked={!isToggle} onChange={toggled} />
           </div>
-        </div>
-        {!isToggle ? <Hours /> : null}
+        </Container>
+        {!isToggle ? <Hours time={formData} /> : null}
 
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            width: "500px",
-            margin: "10px auto",
-          }}
-        >
+        <Container style={{ width: "70%" }}>
           <Button secondary onClick={navigation.previous}>
             Back
           </Button>
-          <Button positive onClick={navigation.next}>
+          <Button floated="right" positive onClick={navigation.next}>
             Next
           </Button>
-        </div>
+        </Container>
       </Container>
     </>
   );
