@@ -4,8 +4,8 @@ import { Button, Container, Form } from "semantic-ui-react";
 export default function buisnessDetails({ formData, setForm, navigation }) {
   const { name, address, city, phNumber, website } = formData;
   return (
-    <>
-      <Container style={{ marginTop: "5em", width: "500px" }}>
+    <Container>
+      <Container style={{ width: "70%" }}>
         <h1 style={{ textAlign: "center" }}>Buisness Details</h1>
         <Form>
           <Form.Field>
@@ -62,6 +62,6 @@ export default function buisnessDetails({ formData, setForm, navigation }) {
           </Button>
         </Form>
       </Container>
-    </>
+    </Container>
   );
 }

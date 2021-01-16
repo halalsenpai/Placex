@@ -4,7 +4,8 @@ import "./formstyles.css";
 import Time from "./Time";
 
 export default function Hourdiv(props) {
-  console.log(props.days.name);
+  const { time, days, setForm } = props;
+  // console.log(time);
 
   function toggle(x, y) {
     x(!y);
@@ -13,14 +14,11 @@ export default function Hourdiv(props) {
     <div>
       <div className="hour_div">
         <div className="toggle-div">
-          <span>{props.days.name}</span>
-          <Checkbox
-            toggle
-            onChange={() => toggle(props.days.setDay, props.days.day)}
-          />
+          <span>{days.name}</span>
+          <Checkbox toggle onChange={() => toggle(days.setDay, days.day)} />
         </div>
 
-        {props.days.day ? <Time /> : null}
+        {days.day ? <Time time={time} setForm={setForm} /> : null}
       </div>
     </div>
   );
