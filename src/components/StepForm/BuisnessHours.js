@@ -42,7 +42,7 @@ export default function BuisnessHours({ formData, setForm, navigation }) {
         </Container>
         {!isToggle ? <Hours time={formData} /> : null}
 
-        <Container style={{ width: "70%" }}>
+        <Container style={{ width: "70%", marginTop: "3em" }}>
           <Button secondary onClick={navigation.previous}>
             Back
           </Button>

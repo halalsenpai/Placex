@@ -7,10 +7,10 @@ export default function Time({ time, setForm }) {
     <div
       style={{
         display: "flex",
-        justifyContent: "space-evenly",
+        justifyContent: "space-around",
         alignItems: "center",
         flexGrow: "1",
-        margin: "1px 0",
+        margin: "5px 0",
       }}
     >
       <input defaultValue="07:45" onChange={setForm} type="time" />
