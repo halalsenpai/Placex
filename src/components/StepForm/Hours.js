@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Segment } from "semantic-ui-react";
 import Hourdiv from "./Hourdiv";
 
-export default function HoursTest({ setForm, time }) {
+export default function HoursTest(props) {
   const [isMonday, setIsMonday] = useState(false);
   const [isTuesday, setisTuesday] = useState(false);
   const [isWednesday, setisWednesday] = useState(false);
@@ -12,13 +11,7 @@ export default function HoursTest({ setForm, time }) {
   const [isSunday, setisSunday] = useState(false);
 
   const days = [
-    {
-      name: "Monday",
-      setDay: setIsMonday,
-      day: isMonday,
-      id: 1,
-      start: "monday",
-    },
+    { name: "Monday", setDay: setIsMonday, day: isMonday, id: 1 },
     { name: "Tuesday", setDay: setisTuesday, day: isTuesday, id: 2 },
     { name: "Wednesday", setDay: setisWednesday, day: isWednesday, id: 3 },
     { name: "Thursday", setDay: setisThursday, day: isThursday, id: 4 },
@@ -28,12 +21,10 @@ export default function HoursTest({ setForm, time }) {
   ];
 
   return (
-    <Segment>
-      {time.times.map((daytest) => console.log(daytest))}
-      {days.map((day) => {
-        <Hourdiv time={time} days={day} key={days.id} />;
-        console.log(day);
-      })}
-    </Segment>
+    <div>
+      {days.map((day) => (
+        <Hourdiv days={day} key={days.id} />
+      ))}
+    </div>
   );
 }
